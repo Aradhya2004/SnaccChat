@@ -60,8 +60,8 @@ function MessageContainer() {
               {moment(message.timestamp).format("LL")}
             </div>
           )}
-          {selectedChatType === "contact" && renderDMMessages(message)};
-          {selectedChatType === "channel" && renderChannelMessages(message)};
+          {selectedChatType === "contact" && renderDMMessages(message)}
+          {selectedChatType === "channel" && renderChannelMessages(message)}
         </div>
       );
     });
