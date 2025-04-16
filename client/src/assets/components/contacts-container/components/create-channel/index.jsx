@@ -17,7 +17,7 @@ import { CREATE_CHANNEL_ROUTE, GET_ALL_CONTACTS } from "@/utils/constants"
 import { Input } from "@/assets/components/ui/input"
 import { apiClient } from "@/lib/api-client"
 import { useAppStore } from "@/store"
-import MultipleSelector from "@/components/ui/multipleSelect"
+import MultipleSelector from "@/components/ui/multipleselect"
 
 
 function CreateChannel() {
