@@ -3,7 +3,7 @@ import User from "../models/UserModel.js";
 import jwt from "jsonwebtoken"
 import { renameSync, unlinkSync } from 'fs';
 
-const maxAge = 3 * 24 * 60 * 60 * 1000;
+const maxAge = 3 * 24 * 60 * 60;
 
 const createToken = (email, userId) => {
     return jwt.sign({ email, userId }, process.env.JWT_KEY, { expiresIn: maxAge })
@@ -17,8 +17,8 @@ export const signup = async (req, res, next) => {
         }
         const user = await User.create({ email, password });
         res.cookie("jwt", createToken(email, user.id), {
-            maxAge,
-            secure: true,
+            maxAge: maxAge * 1000,        
+            secure: true,          
             sameSite: "None"
         });
         return res.status(201).json({
@@ -49,8 +49,8 @@ export const login = async (req, res, next) => {
             return res.status(400).send("Password is incorrect");
         }
         res.cookie("jwt", createToken(email, user.id), {
-            maxAge,
-            secure: true,
+            maxAge: maxAge * 1000,        
+            secure: true,          
             sameSite: "None"
         });
         return res.status(201).json({

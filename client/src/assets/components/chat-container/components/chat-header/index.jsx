@@ -13,7 +13,8 @@ function ChatHeader() {
         <div className='flex gap-3 items-center justify-center'>
           <div className='h-12 w-12 relative'>
             {
-              selectedChatType === 'contact' ? ( <Avatar className='h-12 w-12 border-[1px] rounded-full overflow-hidden'>
+              selectedChatType === 'contact' ? ( 
+              <Avatar className='h-12 w-12 border-[1px] rounded-full overflow-hidden'>
                 {selectedChatData.image ? (
                   <AvatarImage
                     src={`${HOST}/${selectedChatData.image}`}
